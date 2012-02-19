@@ -60,6 +60,24 @@ public class AnCommandExecutor implements CommandExecutor{
 					cmd = new CasinoType(plugin, args, player);
 				}
 				
+				// casino toggle
+				else if(args[0].equalsIgnoreCase("toggle")) {
+					if (args.length < 2) return true;
+					// Slot exists
+					if(plugin.slotData.isSlot(args[1])) {
+						SlotMachine slot = plugin.slotData.getSlot(args[1]);
+						slot.toggleBusy();
+						plugin.sendMessage(player, "Slot machine toggled.");
+						return true;
+					}
+					
+					// Slot does not exist
+					else {
+						plugin.sendMessage(player, "Invalid slot machine.");
+						return true;
+					}
+				}
+				
 				// invalid command
 				else {
 					return false;
