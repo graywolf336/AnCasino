@@ -13,9 +13,6 @@ import me.darazo.ancasino.util.Permissions;
 import me.darazo.ancasino.util.StatData;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
-import org.bukkit.event.Event.Priority;
-import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -24,12 +21,11 @@ public class AnCasino extends JavaPlugin{
 	
 	protected AnCasino plugin;
 	
-	public String prefix = "[AnCasino]";
-	private PluginDescriptionFile pdfFile;
+	public String prefix = "[Casino]";
 	
 	private AnPlayerListener playerListener = new AnPlayerListener(this);
 	private AnBlockListener blockListener = new AnBlockListener(this);
-	private AnCommandExecutor commandExecutor;
+	private AnCommandExecutor commandExecutor = new AnCommandExecutor(this);
 	
 	public ConfigData configData = new ConfigData(this);
 	public SlotData slotData = new SlotData(this);
@@ -42,10 +38,7 @@ public class AnCasino extends JavaPlugin{
 	public final Logger logger = Logger.getLogger("Minecraft");
 
 	@Override
-	public void onDisable() {
-		
-		this.logger.info(prefix + " Saving and unloading data..");
-		
+	public void onDisable() {		
 		configData.save();
 		
 		this.configData = null;
@@ -54,9 +47,6 @@ public class AnCasino extends JavaPlugin{
 		this.statsData = null;
 		this.rewardData = null;
 		this.permission = null;
-		
-		this.logger.info(prefix + " Disabled.");
-		
 	}
 
 	@Override
@@ -66,15 +56,10 @@ public class AnCasino extends JavaPlugin{
 		
 		PluginManager pm = this.getServer().getPluginManager();
 		
-		pm.registerEvent(Event.Type.PLAYER_INTERACT, this.playerListener, Priority.Normal, this);
-		pm.registerEvent(Event.Type.BLOCK_BREAK, this.blockListener, Priority.Highest, this);
+		pm.registerEvents(this.playerListener, this);
+		pm.registerEvents(this.blockListener, this);
 		
-		pdfFile = this.getDescription();
-		
-		commandExecutor = new AnCommandExecutor(this);
 		getCommand("casino").setExecutor(commandExecutor);
-		
-		this.logger.info(prefix +" v" + pdfFile.getVersion() + " enabled.");
 		
 		if(!pm.isPluginEnabled("Vault")) {
 			

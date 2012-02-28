@@ -9,11 +9,12 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerListener;
 
-public class AnPlayerListener extends PlayerListener {
+public class AnPlayerListener implements Listener {
 	
 	protected AnCasino plugin;
 	
@@ -21,12 +22,15 @@ public class AnPlayerListener extends PlayerListener {
 		this.plugin = plugin;
 	}
 	
+	@EventHandler
 	public void onPlayerInteract(PlayerInteractEvent event) {
+		if(event.isCancelled()) return;
 		
 		// Check if plugin is enabled
 		if(plugin.isEnabled()) {
 			Player player = event.getPlayer();
 			Block b = event.getClickedBlock();
+			if(b == null) return;
 				
 			// Left clicked note block
 			if(b.getType() == Material.NOTE_BLOCK) {
