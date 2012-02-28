@@ -63,7 +63,7 @@ public class ConfigData {
 		this.chatColor = config.getString("options.chat.chat-color", "&a");
 		this.displayPrefix = config.getBoolean("options.chat.display-plugin-prefix", true);
 		this.trackStats = config.getBoolean("options.track-statistics", true);
-		this.allowDiagonals = config.getBoolean("options.allow-diagonal-winnings", true);
+		this.allowDiagonals = config.getBoolean("options.allow-diagonal-winnings", false);
 		this.protection = config.getBoolean("options.enable-slot-protection", true);
 	}
 	
@@ -103,9 +103,8 @@ public class ConfigData {
 	// Set default values for new type
 	public void setTypeDefaults(String name) {
 		
-		config.set("types."+ name +".price", 100);
-		config.set("types."+ name +".permission", 0);
-		config.set("types."+ name +".price", 100);
+		config.set("types."+ name +".cost", 100);
+		config.set("types."+ name +".create-cost", 1000);
 		
 		ArrayList<String> reel = new ArrayList<String>();
 		reel.add("42,10");
@@ -116,13 +115,13 @@ public class ConfigData {
 		config.set("types."+ name +".rewards.42.message", "Winner");
 		config.set("types."+ name +".rewards.42.money", 100);
 		config.set("types."+ name +".rewards.41.message", "Winner");
-		config.set("types."+ name +".rewards.41.money", 100);
+		config.set("types."+ name +".rewards.41.money", 150);
 		config.set("types."+ name +".rewards.57.message", "Winner");
-		config.set("types."+ name +".rewards.57.money", 100);
+		config.set("types."+ name +".rewards.57.money", 300);
 		
 		config.set("types."+ name +".messages.insufficient-funds", "Insufficient funds.");
 		config.set("types."+ name +".messages.in-use", "In use.");
-		config.set("types."+ name +".messages.no-win", "No win.");
+		config.set("types."+ name +".messages.no-win", "You didn't win.");
 		config.set("types."+ name +".messages.start", "Start.");
 		config.set("types."+ name +".messages.help", new ArrayList<String>());
 		
