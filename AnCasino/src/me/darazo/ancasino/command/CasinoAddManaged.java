@@ -85,7 +85,7 @@ public class CasinoAddManaged extends AnCommand {
 		// incorrect command format
 		else {
 			plugin.sendMessage(player, "Usage:");
-			plugin.sendMessage(player, "/casino add <name> (<type>)");
+			plugin.sendMessage(player, "/casino addmanaged <name> (<type>)");
 		}
 		return true;
 
