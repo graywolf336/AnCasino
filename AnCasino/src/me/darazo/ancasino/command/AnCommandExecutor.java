@@ -1,6 +1,7 @@
 package me.darazo.ancasino.command;
 
 import me.darazo.ancasino.AnCasino;
+import me.darazo.ancasino.slot.SlotMachine;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -16,7 +17,6 @@ public class AnCommandExecutor implements CommandExecutor{
 		this.plugin = plugin;
 	}
 
-	@Override
 	public boolean onCommand(CommandSender sender, Command command, String commandlabel, final String[] args) {
 		
 		if(sender instanceof Player) {
@@ -60,6 +60,11 @@ public class AnCommandExecutor implements CommandExecutor{
 					cmd = new CasinoType(plugin, args, player);
 				}
 				
+				// casino deposit
+				else if(args[0].equalsIgnoreCase("deposit")) {
+					cmd = new CasinoDeposit(plugin, args, player);
+				}
+				
 				// casino toggle
 				else if(args[0].equalsIgnoreCase("toggle")) {
 					if (args.length < 2) return true;
@@ -80,7 +85,8 @@ public class AnCommandExecutor implements CommandExecutor{
 				
 				// invalid command
 				else {
-					return false;
+					plugin.sendMessage(player, "Incorrect command syntax, see /casino for help.");
+					return true;
 				}
 				
 			}
