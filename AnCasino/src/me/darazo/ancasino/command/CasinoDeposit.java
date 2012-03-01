@@ -13,13 +13,6 @@ public class CasinoDeposit extends AnCommand {
 	}
 	
 	public Boolean process() {
-		
-		// Permissions
-		if(!plugin.permission.canCreate(player)) {
-			noPermission();
-			return true;
-		}
-		
 		// Correct command format
 		if(args.length == 3) {
 			

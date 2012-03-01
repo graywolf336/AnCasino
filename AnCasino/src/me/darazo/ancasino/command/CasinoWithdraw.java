@@ -12,14 +12,7 @@ public class CasinoWithdraw extends AnCommand {
 		super(plugin, args, player);
 	}
 	
-	public Boolean process() {
-		
-		// Permissions
-		if(!plugin.permission.canCreate(player)) {
-			noPermission();
-			return true;
-		}
-		
+	public Boolean process() {		
 		// Correct command format
 		if(args.length == 3) {
 			
