@@ -46,6 +46,14 @@ public class Game {
 		Integer[] task = new Integer[3];
 		Long[] delay = {60L, 80L, 100L};
 		
+		if (slot.isManaged()) {
+			if(slot.getFunds() >= plugin.typeData.getMaxPrize(slot.getType())) {
+				slot.setEnabled(true);
+			}else {
+				slot.setEnabled(false);
+			}
+		}
+		
 		if(!slot.isEnabled()) {
 			plugin.sendMessage(player, "This slot machine is currently disabled. Deposit more funds to enable.");
 			return;
