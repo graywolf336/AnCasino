@@ -5,10 +5,10 @@ import org.bukkit.entity.Player;
 import me.darazo.ancasino.AnCasino;
 import me.darazo.ancasino.slot.SlotMachine;
 
-public class CasinoDeposit extends AnCommand {
+public class CasinoWithdraw extends AnCommand {
 	
 	// Command for removing slot machine
-	public CasinoDeposit(AnCasino plugin, String[] args, Player player) {
+	public CasinoWithdraw(AnCasino plugin, String[] args, Player player) {
 		super(plugin, args, player);
 	}
 	
@@ -42,8 +42,10 @@ public class CasinoDeposit extends AnCommand {
 						sendMessage("Third arugment must be a number.");
 						return true;
 					}
-					slot.deposit(amount);
-					sendMessage(amount +  " deposited to " + args[1] + ".");
+					slot.withdraw(amount);
+					sendMessage(amount +  " withdrew from " + args[1] + ".");
+					sendMessage(args[1] + " now has " + slot.getFunds() + " in it's account.");
+					plugin.saveFiles();
 				}
 				// No access
 				else {

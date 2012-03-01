@@ -40,6 +40,7 @@ public class AnCasino extends JavaPlugin{
 	@Override
 	public void onDisable() {		
 		configData.save();
+		configData.saveSlots();
 		
 		this.configData = null;
 		this.slotData = null;
@@ -83,6 +84,12 @@ public class AnCasino extends JavaPlugin{
 		message = configData.prefixColor + prefix + configData.chatColor + " " + message;
 		message = message.replaceAll("(?i)&([a-f0-9])", "\u00A7$1");
 		player.sendMessage(message);	
+	}
+	
+	//saves the files
+	public void saveFiles() {
+		configData.save();
+		configData.saveSlots();
 	}
 	
 	// Registers economy with Vault

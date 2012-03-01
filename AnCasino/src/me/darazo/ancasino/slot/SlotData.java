@@ -116,11 +116,11 @@ public class SlotData {
 		
 		String path = "slots." + name + ".";
 		
-		String type = plugin.configData.slots.getString(path + "type", "default");
-		String owner = plugin.configData.slots.getString(path + "owner", null);
-		String world = plugin.configData.slots.getString(path + "world", "world");
-		Boolean managed = plugin.configData.slots.getBoolean(path + "managed", false);
-		Double funds = plugin.configData.slots.getDouble(path + "funds", 0);
+		String type = plugin.configData.slots.getString(path + "type");
+		String owner = plugin.configData.slots.getString(path + "owner");
+		String world = plugin.configData.slots.getString(path + "world");
+		Boolean managed = plugin.configData.slots.getBoolean(path + "managed");
+		Double funds = plugin.configData.slots.getDouble(path + "funds");
 		ArrayList<Block> blocks = getBlocks(name);
 		Block controller = getController(name);
 		

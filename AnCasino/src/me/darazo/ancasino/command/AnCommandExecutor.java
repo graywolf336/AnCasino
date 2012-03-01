@@ -24,7 +24,6 @@ public class AnCommandExecutor implements CommandExecutor{
 			
 			// Valid command format
 			if(args.length >= 1) {
-				
 				// casino add
 				if(args[0].equalsIgnoreCase("add")) {
 					cmd = new CasinoAdd(plugin, args, player);
@@ -65,9 +64,17 @@ public class AnCommandExecutor implements CommandExecutor{
 					cmd = new CasinoDeposit(plugin, args, player);
 				}
 				
+				// casino deposit
+				else if(args[0].equalsIgnoreCase("withdraw")) {
+					cmd = new CasinoWithdraw(plugin, args, player);
+				}
+				
 				// casino toggle
 				else if(args[0].equalsIgnoreCase("toggle")) {
-					if (args.length < 2) return true;
+					if (args.length < 2) {
+						plugin.sendMessage(player, "Please type which slot you want to toggle.");
+						return true;
+					}
 					// Slot exists
 					if(plugin.slotData.isSlot(args[1])) {
 						SlotMachine slot = plugin.slotData.getSlot(args[1]);
