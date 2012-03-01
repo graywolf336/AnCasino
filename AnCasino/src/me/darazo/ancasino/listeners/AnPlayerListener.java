@@ -84,6 +84,13 @@ public class AnPlayerListener implements Listener {
 						// Right click event
 						else if(event.getAction() == Action.RIGHT_CLICK_BLOCK) {
 							if(plugin.permission.isOwner(player, slot)) {
+								/*if (slot.isManaged()) {
+									if(slot.getFunds() >= plugin.typeData.getMaxPrize(slot.getType())) {
+										slot.setEnabled(true);
+									}else {
+										slot.setEnabled(false);
+									}
+								}*/
 								plugin.sendMessage(player, slot.getName() +":");
 								plugin.sendMessage(player, "Type: " + slot.getType());
 								plugin.sendMessage(player, "Owner: " + slot.getOwner());

@@ -38,7 +38,7 @@ public class SlotMachine {
 		this.funds = 0.0;
 		
 		if(isManaged()) {
-			this.enabled = false;
+			enabled = false;
 		}
 	}
 	
