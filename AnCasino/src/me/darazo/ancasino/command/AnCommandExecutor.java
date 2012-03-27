@@ -1,12 +1,13 @@
 package me.darazo.ancasino.command;
 
-import me.darazo.ancasino.AnCasino;
 import me.darazo.ancasino.slot.SlotMachine;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import com.craftyn.casinoslots.AnCasino;
 
 public class AnCommandExecutor implements CommandExecutor{
 	

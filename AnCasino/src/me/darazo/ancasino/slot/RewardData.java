@@ -7,7 +7,8 @@ import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import me.darazo.ancasino.AnCasino;
+import com.craftyn.casinoslots.AnCasino;
+
 
 public class RewardData {
 	

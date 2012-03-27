@@ -1,6 +1,5 @@
 package me.darazo.ancasino.listeners;
 
-import me.darazo.ancasino.AnCasino;
 import me.darazo.ancasino.slot.SlotMachine;
 
 import org.bukkit.block.Block;
@@ -8,6 +7,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
+
+import com.craftyn.casinoslots.AnCasino;
 
 public class AnBlockListener implements Listener {
 	

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import me.darazo.ancasino.AnCasino;
+import com.craftyn.casinoslots.AnCasino;
 
 public class Type {
 	

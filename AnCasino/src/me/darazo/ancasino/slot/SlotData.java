@@ -13,7 +13,8 @@ import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Player;
 
-import me.darazo.ancasino.AnCasino;
+import com.craftyn.casinoslots.AnCasino;
+
 
 public class SlotData {
 	

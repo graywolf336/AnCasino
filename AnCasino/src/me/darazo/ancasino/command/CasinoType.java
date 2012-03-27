@@ -1,8 +1,9 @@
 package me.darazo.ancasino.command;
 
-import me.darazo.ancasino.AnCasino;
 
 import org.bukkit.entity.Player;
+
+import com.craftyn.casinoslots.AnCasino;
 
 public class CasinoType extends AnCommand {
 	

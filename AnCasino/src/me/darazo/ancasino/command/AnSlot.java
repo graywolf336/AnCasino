@@ -1,10 +1,11 @@
 package me.darazo.ancasino.command;
 
-import me.darazo.ancasino.AnCasino;
 import me.darazo.ancasino.slot.SlotMachine;
 import me.darazo.ancasino.slot.Type;
 
 import org.bukkit.entity.Player;
+
+import com.craftyn.casinoslots.AnCasino;
 
 public class AnSlot extends AnCommand {
 	

@@ -4,7 +4,8 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Set;
 
-import me.darazo.ancasino.AnCasino;
+import com.craftyn.casinoslots.AnCasino;
+
 
 public class StatData {
 	

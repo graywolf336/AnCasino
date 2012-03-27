@@ -1,6 +1,5 @@
 package me.darazo.ancasino.listeners;
 
-import me.darazo.ancasino.AnCasino;
 import me.darazo.ancasino.slot.SlotMachine;
 import me.darazo.ancasino.slot.Type;
 import me.darazo.ancasino.slot.game.Game;
@@ -13,6 +12,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+
+import com.craftyn.casinoslots.AnCasino;
 
 public class AnPlayerListener implements Listener {
 	
